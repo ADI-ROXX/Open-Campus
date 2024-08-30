@@ -43,16 +43,37 @@ function extractSortedElements(pairs) {
     return pairs.map(pair => pair[0]);
 }
 
+// Function to perform binary search for the first positive pair
+function findFirstPositivePairBinarySearch(pairs) {
+    let left = 0;
+    let right = pairs.length - 1;
+    let result = null;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (pairs[mid][0] > 0) {
+            result = mid;
+            right = mid - 1; // Move left to find the first positive pair
+        } else {
+            left = mid + 1; // Move right to find a positive pair
+        }
+    }
+
+    return result; // Return the first positive pair found, or null if not found
+}
+
+
+
 // Example usage
 const originalArray = [-10,-20,2,9,19]
 const enumeratedArray = enumerateArray(originalArray);
 const sortedPairs = mergeSort(enumeratedArray);
 const sortedArray = extractSortedElements(sortedPairs);
 
-f
 
 console.log('Original Array:', originalArray);
-console.log('Sorted Array:', sortedPairs);
+console.log('Sorted Array:', findFirstPositivePairBinarySearch(sortedPairs));
 
 
 

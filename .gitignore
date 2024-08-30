@@ -12,6 +12,12 @@ node_modules
 # solidity-coverage files
 /coverage
 /coverage.json
-
+.DS_Store
+.gitignore
 # Hardhat Ignition default folder for deployments against a local node
 ignition/deployments/chain-31337
+# Ignore node_modules in every folder
+node_modules/
+
+# Ignore all files that start with a dot (.)
+**/.*
